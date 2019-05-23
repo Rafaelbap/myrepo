@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),""" ao acessar 192.168.56.101:8000 (endereço da web) o usuário será direcionado para  blog.urls. Dentro da aplicação blog deve ser criado uma linha para views de blog."""
 ]
