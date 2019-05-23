@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls')),""" ao acessar 192.168.56.101:8000 (endereço da web) o usuário será direcionado para  blog.urls. Dentro da aplicação blog deve ser criado uma linha para views de blog."""
+    path('', include('blog.urls')),# Ao acessar 192.168.56.101:8000 (endereço da web) o usuário será direcionado para  blog.urls. Dentro da aplicação blog deve ser criado uma linha para views de blog.
 ]
