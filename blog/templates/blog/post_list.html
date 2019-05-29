@@ -1,21 +1,30 @@
-<!-- <html> -->
+<html>
+{% load static %}
     <head>
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> <!-- melhoria de visual com bootstrap-->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> <!-- melhoria de visual com bootstrap-->
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}">  <!--Carrega o arquico blog.css que contem o codigo css para melhoria de aspecto da página.-->
       <title>Blog Django </title>
     </head>
+    <div class="page-header">
+        <h1><a href="/">Blog Django </a></h1>
+    </div>
     <body>
-        <div>
-            <h1><a href="/">Blog Django </a></h1>
-        </div>
-
-        {% for post in posts %} <!--Laço de for usado para mostrar/exibir a lista posts-->
-          <div>
-            <p> publicado em: {{post.published_date}} </p><!--Os dados de cada item do objeto post está sendo exibido.-->
-            <h1><a href="">{{post.title}}</a> </h1>
-            <p>{{ post.text|linebreaksbr}}</p><!--O linebreaksbr tem por função passar o texto por um filtro, convertendo quebras de linhas em parágrafos.-->
+      <div class="content container">
+        <div class="row">
+          <div class="col-md-8">
+            {% for post in posts %} <!--Laço de for usado para mostrar/exibir a lista posts-->
+              <div class="post">
+                <div class="date">
+                  <p> publicado em: {{post.published_date}} </p><!--Os dados de cada tributo do objeto post está sendo exibido.-->
+                </div>
+                <h1><a href="">{{post.title}}</a></h1>
+                <p>{{ post.text|linebreaksbr}}</p><!--O linebreaksbr tem por função passar o texto por um filtro, convertendo quebras de linhas em parágrafos.-->
+              </div>
+            {% endfor %} <!--Fechamento do laço for-->
           </div>
-
-        {% endfor %} <!--Fechamento do laço for-->
+        </div>
+      </div>
     </body>
 </html>
