@@ -7,18 +7,14 @@
             <h1><a href="/">Blog Django </a></h1>
         </div>
 
-        <div>
-            <p>publicado: 23.05.2019, 15:17</p>
-            <h2><a href="">Meu primeiro post</a></h2>
-            <p>Não há ensino sem pesquisa e pesquisa sem ensino.</p>
-            <p> Paulo freire </p>
-        </div>
+        {% for post in posts %} <!--Laço de for usado para mostrar/exibir a lista posts-->
+          {{ post }}<!-- Esta variável vem lá do views.py e está trazendo uma lista de posts junto (QuerySets-consulta ao banco de dados).-->
+          <div>
+            <p> publicado em: {{post.published_date}} </p><!--Os dados de cada item do objeto post está sendo exibido.-->
+            <h1><a href="">{{post.title}}</a> </h1>
+            <p>{{ post.text|linebreaksbr}}</p><!--O linebreaksbr tem por função passar o texto por um filtro, convertendo quebras de linhas em parágrafos.-->
+          </div>
 
-        <div>
-            <p>publicado: 23.05.2019, 12:14</p>
-            <h2><a href="">Meu segundo post</a></h2>
-            <p>Há um ditado chinês que diz que, se dois homens vêm andando por uma estrada, cada um carregando um pão, ao se encontrarem, eles trocam os pães; cada um vai embora com um. Porém, se dois homens vêm andando por uma estrada, cada um carregando uma idéia, ao se encontrarem, trocam as idéias; cada um vai embora com duas. Quem sabe, é esse mesmo o sentido do nosso fazer: repartir idéias, para todos terem pão...</p>
-            <p>Mario Sergio Cortella</p>
-        </div>
+        {% endfor %} <!--Fechamento do laço for-->
     </body>
 </html>
