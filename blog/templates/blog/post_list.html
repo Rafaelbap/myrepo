@@ -8,7 +8,6 @@
         </div>
 
         {% for post in posts %} <!--Laço de for usado para mostrar/exibir a lista posts-->
-          {{ post }}<!-- Esta variável vem lá do views.py e está trazendo uma lista de posts junto (QuerySets-consulta ao banco de dados).-->
           <div>
             <p> publicado em: {{post.published_date}} </p><!--Os dados de cada item do objeto post está sendo exibido.-->
             <h1><a href="">{{post.title}}</a> </h1>
